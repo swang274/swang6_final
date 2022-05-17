@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Final Project</title>
+
+		<link rel="stylesheet" href="main.css" />
+	</head>
+	<body>
+		<h1>Where is the Evil Queen?</h1>
+
+		<!-- Level 1 -->
+		<div id="level1">
+			<h2>
+				Find the Evil Queen inside the castle surrounded by a river. <br />There
+				are 3 ways to get across the river. Please select one of the following:
+			</h2>
+			<button onclick="crossRiver('boat')">Boat</button>
+			<button onclick="crossRiver('floaty')">Floaty</button>
+			<button onclick="crossRiver('tree')">
+				Take down a tree to make a bridge
+			</button>
+		</div>
+
+		<!-- Level 2 -->
+		<div id="level2">
+			<h2>
+				Once you cross the river, find the key to get inside the castle.
+				<br />Where is the key?
+			</h2>
+			<button onclick="findKey('tree')">Top of tree</button>
+			<button onclick="findKey('mailBox')">Mailbox</button>
+			<button onclick="findKey('shed')">In the shed!</button>
+		</div>
+
+		<!-- Level 3 -->
+		<div id="level3">
+			<h2>
+				Once you get into the castle,
+				<br />Find the Evil Queen in one of the 8 rooms.
+			</h2>
+		</div>
+
+		<!-- JavaScript -->
+		<script src="./js/index.js"></script>
+	</body>
+</html>

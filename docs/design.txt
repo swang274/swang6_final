@@ -1,0 +1,156 @@
+Problem Statement:
+  Write a game "Where is the Evil Queen?" that takes 3 levels to pass. 
+
+  Level 1: ask the player to choose the way to get across the river. Providing three options: #1 Boat, #2 Floaty, #3 Take down a tree to make a bridge for player to choose from. Set the answer to be anyone of the three. Do not show the level 2 page unitl player pick the correct answer.
+  
+  Once player passed the level 1 test, player will be asked to choose one of the following options to pass the level 2 "Find the key to get inside the castle?" Option #1 Top of the tree, Option #2 Mailbox, Option #3 In the Shed; let the correct answer to be random. Do not show the level 3 page unitl player pick the correct answer.
+  
+  After the player passed the level 2, the player will be facing the final chanllege, which is "Choose the right room from one of the 8 rooms to find the Evil Queen". Ask player to enter a number bewteen 1 to 8 until the player pick the correct number, and set the correct room to be a random room. Do not show the success page unitl the player pick the correct room number.
+
+  One the player passed the final level, show the success message.
+
+
+Nouns: game, 3 levels, options, answer, message
+
+Verbs: ask, choose, providing, set, not show, passed, show
+
+
+
+
+Defining Diagram:
+  INPUTS: level 1's options, level 2's options, number 1-8
+
+  PROCESSING:
+    initialize variable randomAnswer1
+    initialize variable randomAnswer2
+    stay on level1 unitl user's input == randomAnswer1
+
+    stay on level2 unitil user's input == randomAnswer2
+  
+    initialize variable queenRoom set to randomNumber between 1 to 8
+    prompt user for pickRoom beween 1 - 8 until pickRoom == randomNumber
+
+  OUTPUTS:
+    display success message
+      
+
+
+Solution Algorithm:
+
+crossRiver
+  initialize variable randomAnswer1 = a random number 1 - 3
+  SWITCH randomAnswer1
+    CASE 1: randomAnswer1 = "boat"
+    CASE 2: randomAnswer1 = "floaty"
+    CASE 3: randomAnswer1 = "tree"
+  IF randomAnswer1 == user's input
+    add hideLevel class to level1
+    remove hideLevel class from level2
+  ENDIF
+END
+
+findKey
+  initialize variable randomAnswer2 = a random number 1 - 3
+  SWITCH randomAnswer2
+    CASE 1: randomAnswer2 = "tree"
+    CASE 2: randomAnswer2 = "mailBox"
+    CASE 3: randomAnswer2 = "shed"
+  IF randomAnswer2 == user's input
+    add hideLevel class to level2
+    remove hideLevel class from level3
+    invoke eightRooms()
+  ENDIF
+END
+
+eightRooms
+  initialize variable pickRoom = 0
+  initialize variable queenRoom = a random number between 1 - 8 
+  WHILE pickRoom != queenRoom
+    pickRoom = prompt("Please enter a room number between 1 to 8: ")
+    pickRoom = Number(pickRoom)
+    SWITCH pickroom 
+      case 1:
+				pickRoom == queenRoom ? null : alert("Troll is coming to you!!!!!!!");
+				break;
+			case 2:
+				pickRoom == queenRoom ? null : alert("Bear is coming to you!!!!!");
+				break;
+			case 3:
+				pickRoom == queenRoom ? null : alert("Owl is STARING at you!!!!!");
+				break;
+			case 4:
+				pickRoom == queenRoom ? null : alert("There is open Lava pit!");
+				break;
+			case 5:
+				pickRoom == queenRoom ? null : alert("Raccoon is coming to you!!!!");
+				break;
+			case 6:
+				pickRoom == queenRoom ? null : alert("Wolf is coming to you!!!!");
+				break;
+			case 7:
+				pickRoom == queenRoom ? null : alert("Snow White is laying there!!!!!");
+				break;
+			case 8:
+				pickRoom == queenRoom ? null : alert("Endless PIT!!!!!!!!!!!!!!");
+				break;
+			default:
+				alert("Please enter a valid number!!!!!!!");
+  ENDWHILE
+  display "Congratulation! You found the Evil Queen!!!!"
+END
+
+
+
+Test Plan:
+
+VARIABLES: randomAnswer1, randomAnswer2, pickRoom, queenRoom
+
+TEST CASE 1:
+
+  INPUT VALUES: clicked "boat" 
+
+  EXPECTED RESULT:
+    unknown due to random answer
+
+  ACTUAL RESULT:
+    wrong answer!
+
+TEST CASE 2:
+
+  INPUT VALUES: clicked "floaty"
+
+  EXPECTED RESULT:
+    unknown due to random answer
+
+  ACTUAL RESULT:
+    wrong answer!
+
+TEST CASE 3:
+
+  INPUT VALUES: clicked "take down a tree to make a bridge"
+
+  EXPECTED RESULT:
+    next level!
+
+  ACTUAL RESULT:
+    next level!
+
+TEST CASE 4:
+
+  INPUT VALUES: clicked "top of tree"
+
+  EXPECTED RESULT:
+    unknown due to random answer
+
+  ACTUAL RESULT:
+    next level!
+
+TEST CASE 5:
+
+  INPUT VALUES: 5
+
+  EXPECTED RESULT:
+    unknown due to random answer
+
+  ACTUAL RESULT:
+    "Raccoon is coming to you!!!!"
